@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>A social product about difference, not sameness. · Priyanka Sundhar</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Manrope:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><style>
+:root{--bg:#ffffff;--ink:#141210;--ink-2:#575049;--muted:#948d84;--line:#e9e6e1;--line-2:#dcd7cf;--panel:#f4f2ef;--maxw:720px;--wide:900px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:16.5px;line-height:1.72;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Newsreader',Georgia,serif}.mono{font-family:'Space Mono',monospace}a{color:inherit}
+.col{max-width:var(--maxw);margin:0 auto;padding:0 28px}.wide{max-width:var(--wide);margin:0 auto;padding:0 28px}
+#nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:20px 28px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.92);backdrop-filter:blur(9px)}
+#nav .nm{font-family:'Newsreader',serif;font-size:16px;font-weight:500;text-decoration:none}#nav .lx{display:flex;gap:22px}#nav .lx a{font-size:13px;color:var(--ink-2);text-decoration:none}
+.label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
+.post{padding:150px 0 40px}.post .back{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.04em;display:inline-block;margin-bottom:34px}.post .back:hover{color:var(--ink)}
+.post .pmeta{margin-bottom:18px}.post h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-.015em;margin-bottom:22px;max-width:22ch}.post .dek{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:56ch;margin-bottom:8px}
+.post .body{padding-top:20px}.post .body p{margin-bottom:22px;color:var(--ink);font-size:17px;line-height:1.75}.post .body p.q{color:var(--ink-2)}.post .body h2{font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:40px 0 14px;line-height:1.2}
+figure{margin:36px 0}figure.wide{max-width:var(--wide);margin-left:auto;margin-right:auto}figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}figure.win{border:1px solid var(--line-2);border-radius:12px;overflow:hidden}figure.win img{border:0;border-radius:0}figure.win .bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line-2);background:#fff}figure.win .bar i{width:9px;height:9px;border-radius:50%;background:#e2ded7;display:block}figure.win .bar .f{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-left:8px}
+figure video{width:100%;height:auto;display:block;background:#111;border:1px solid var(--line);border-radius:8px}figure.phone{max-width:330px;margin-left:auto;margin-right:auto}figcaption{margin-top:11px;font-size:13.5px;color:var(--muted);line-height:1.5}
+.post .foot{margin-top:48px;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13.5px}.post .foot a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:560px){#nav .lx{display:none}#nav{padding:16px 20px}}
+</style><style id="v49-blog-polish">.post h1{max-width:24ch}.post .dek{max-width:60ch}</style>
+<style id="v56-phone-frame">
+figure.phone{max-width:330px;margin-left:auto;margin-right:auto}
+.phone-frame{position:relative;border:1px solid #d8d3cc;border-radius:34px;padding:12px;background:#111;box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.phone-frame::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:34%;height:22px;background:#111;border-radius:0 0 14px 14px;z-index:2}
+.phone-frame video{border:0!important;border-radius:24px!important;width:100%;display:block;background:#000;aspect-ratio:9/19.5;object-fit:cover}
+</style>
+
+<style id="wirlix-text-phone-layout">
+  .wirlix-layout{
+    max-width:var(--wide);
+    margin:34px auto 0;
+    padding:0 28px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 300px;
+    gap:72px;
+    align-items:start;
+  }
+  .wirlix-layout .body{
+    padding-top:0;
+    max-width:620px;
+  }
+  .wirlix-layout .body p{
+    margin-bottom:26px;
+  }
+  .wirlix-layout figure.phone{
+    max-width:300px;
+    margin:0;
+    position:sticky;
+    top:96px;
+  }
+  @media(max-width:860px){
+    .wirlix-layout{
+      grid-template-columns:1fr;
+      gap:40px;
+    }
+    .wirlix-layout figure.phone{
+      position:relative;
+      top:auto;
+      margin:0 auto;
+    }
+  }
+</style>
+
+</head><body><nav id="nav"><a class="nm" href="index.html">Priyanka Sundhar</a><div class="lx"><a href="index.html#work">Work</a><a href="index.html#elsewhere">Elsewhere</a><a href="index.html#about">About</a></div></nav><main class="post"><div class="col"><a class="back" href="index.html">← Back to work</a><div class="label pmeta">Wirlix · Social debate</div><h1>A social product about difference, not sameness.</h1></div><div class="wirlix-layout"><div class="body"><p>What if you could have a TikTok for debate, where people connect based on different opinions instead of shared interests? Instead of comments and videos, people could actually respond to videos with their own videos. To avoid negativity and increase intention, people had to put their face behind what they said so there were no text comments.</p><p>It was early in my building journey, and honestly one of my favorite projects to work on. After dropping out of NYU I deeply valued getting different perspectives and opening my mind so this felt like an extension of who I was.</p><p>As a solo founder with the help of some awesome friends and interns, we got a creator program running with 20 influencers, reached 1,000+ users, and created 450 debates. Fun fact: I got to meet Jordan Belfort through it.</p><div class="foot"><a href="index.html">Home</a><a href="index.html">Next piece →</a></div></div><figure class="phone"><div class="phone-frame"><video src="wirlix_feed_start_121.mp4" autoplay muted loop playsinline controls></video></div></figure></div></main></body></html>

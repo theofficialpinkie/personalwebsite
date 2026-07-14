@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Priyanka Sundhar — Builder & Operator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Manrope:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --ink:#141210; --ink-2:#575049; --muted:#948d84;
+  --line:#e9e6e1; --line-2:#dcd7cf; --panel:#f4f2ef; --maxw:720px; --wide:900px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+  font-size:16.5px;line-height:1.72;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Newsreader',Georgia,serif}
+.mono{font-family:'Space Mono',monospace}
+a{color:inherit}
+::selection{background:#eceae6}
+.col{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 28px}
+.label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--muted)}
+
+/* nav (scoped to the top bar only) */
+#nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;
+  align-items:center;padding:20px 28px;transition:padding .3s,background .3s,border-color .3s;
+  border-bottom:1px solid transparent;background:rgba(255,255,255,.6);backdrop-filter:blur(6px)}
+#nav.scrolled{padding:14px 28px;background:rgba(255,255,255,.9);backdrop-filter:blur(9px);
+  border-bottom:1px solid var(--line)}
+#nav .nm{font-family:'Newsreader',serif;font-size:16px;font-weight:500;text-decoration:none}
+#nav .lx{display:flex;gap:22px}
+#nav .lx a{font-size:13px;color:var(--ink-2);text-decoration:none;transition:color .2s}
+#nav .lx a:hover{color:var(--ink)}
+@media(max-width:560px){#nav .lx{display:none}#nav{padding:16px 20px}}
+
+/* hero */
+.hero{padding:172px 0 70px}
+.hero h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(26px,3.8vw,36px);
+  line-height:1.3;letter-spacing:-.01em;max-width:20ch;margin-bottom:26px}
+.hero p.intro{font-size:17px;color:var(--ink-2);max-width:56ch;margin-bottom:32px}
+.creds{display:flex;flex-wrap:wrap;gap:8px 20px;padding-top:22px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-2)}
+.creds b{font-weight:600;color:var(--ink)}
+.creds .sep{color:var(--line-2)}
+
+/* section */
+.sec{padding:64px 0;border-top:1px solid var(--line)}
+.sec > .col > .label,.sec > .wide > .label{margin-bottom:34px}
+
+/* table of contents */
+.toc a{display:grid;grid-template-columns:44px 1fr auto;gap:20px;align-items:baseline;
+  text-decoration:none;color:inherit;padding:22px 6px;border-top:1px solid var(--line);transition:padding .22s}
+.toc a:last-child{border-bottom:1px solid var(--line)}
+.toc a:hover{padding-left:16px}
+.toc .num{font-family:'Space Mono',monospace;font-size:13px;color:var(--muted)}
+.toc .mid .nm{font-family:'Newsreader',serif;font-size:23px;line-height:1.15}
+.toc .mid .ds{font-size:14.5px;color:var(--ink-2);margin-top:3px}
+.toc .st{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);white-space:nowrap;align-self:center}
+.toc a:hover .st{color:var(--ink)}
+@media(max-width:560px){.toc a{grid-template-columns:30px 1fr;gap:12px}.toc .st{display:none}}
+
+/* currently building / demo */
+.build .head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:8px}
+.build h2{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(24px,3.2vw,32px);line-height:1.1}
+.build .live{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-2);display:flex;align-items:center;gap:8px}
+.build .live .d{width:8px;height:8px;border-radius:50%;background:#1a1a1a}
+.build p.sub{color:var(--ink-2);max-width:60ch;margin:14px 0 28px}
+.demo{position:relative;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;background:var(--panel)}
+.demo .bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line-2);background:#fff}
+.demo .bar i{width:9px;height:9px;border-radius:50%;background:#e2ded7;display:block}
+.demo .bar .f{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-left:8px}
+.demo .frame{aspect-ratio:16/10;width:100%;display:block;border:0}
+.demo .fallback{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;
+  flex-direction:column;gap:12px;text-align:center;padding:30px;color:var(--muted)}
+.demo .fallback a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.demo-cap{margin-top:14px;font-size:13.5px;color:var(--muted)}
+.demo-cap a{color:var(--ink-2)}
+
+/* elsewhere */
+.else-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;align-items:start}
+.else-video{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#f1efec}
+.else-video .playwrap{position:relative;cursor:pointer}
+.else-video video{display:block;width:100%;height:auto}
+.else-video .cap{padding:14px 16px;font-size:13.5px;color:var(--ink-2);border-top:1px solid var(--line)}
+.else-links{display:flex;flex-direction:column;gap:14px}
+.else-card{border:1px solid var(--line);border-radius:12px;padding:22px 22px;text-decoration:none;
+  color:inherit;transition:border-color .2s,transform .2s;display:block}
+.else-card:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.else-card .k{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px}
+.else-card h3{font-family:'Newsreader',serif;font-weight:500;font-size:19px;line-height:1.2;margin-bottom:6px}
+.else-card .go{margin-top:12px;font-size:13px;color:var(--ink-2)}
+@media(max-width:640px){.else-grid{grid-template-columns:1fr}}
+
+/* play button (shared) */
+.playwrap .pb{position:absolute;inset:0;margin:auto;width:54px;height:54px;border-radius:50%;
+  background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px -8px rgba(0,0,0,.34);transition:transform .2s;z-index:2}
+.playwrap:hover .pb{transform:scale(1.08)}
+.playwrap .pb svg{margin-left:3px}
+.playwrap.playing .pb{display:none}
+
+/* about */
+.about .grid{display:grid;grid-template-columns:150px 1fr;gap:38px;align-items:start}
+.about .ph{border-radius:10px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line)}
+.about .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.about .bd p{color:var(--ink-2);margin-bottom:15px}
+.about .bd p.lead{color:var(--ink)}
+.about .bd .reach{color:var(--ink);font-weight:500;margin-top:4px}
+@media(max-width:560px){.about .grid{grid-template-columns:1fr;gap:22px}.about .ph{max-width:172px}}
+
+/* contact */
+.contact a.mail{font-family:'Newsreader',serif;font-size:clamp(21px,2.8vw,28px);color:var(--ink);
+  text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:3px;transition:border-color .2s}
+.contact a.mail:hover{border-color:var(--ink)}
+.contact .sub{margin-top:20px;font-size:14px;color:var(--muted)}
+.contact .sub a{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
+
+footer{padding:42px 0 58px;border-top:1px solid var(--line);margin-top:36px}
+footer .col{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+footer span,footer a{font-size:12.5px;color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink-2)}
+
+/* ---- blog post ---- */
+.post{padding:150px 0 40px}
+.post .back{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none;
+  letter-spacing:.04em;display:inline-block;margin-bottom:34px}
+.post .back:hover{color:var(--ink)}
+.post .pmeta{margin-bottom:18px}
+.post h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,46px);
+  line-height:1.08;letter-spacing:-.015em;margin-bottom:22px;max-width:20ch}
+.post .dek{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:52ch;margin-bottom:8px}
+.post .body{padding-top:20px}
+.post .body p{margin-bottom:22px;color:var(--ink);font-size:17px;line-height:1.75}
+.post .body p.q{color:var(--ink-2)}
+.post .body h2{font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:40px 0 14px;line-height:1.2}
+.post .body .k{font-weight:600}
+figure{margin:36px 0}
+figure.wide{max-width:var(--wide);margin-left:auto;margin-right:auto}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
+figure.win{border:1px solid var(--line-2);border-radius:12px;overflow:hidden}
+figure.win img{border:0;border-radius:0}
+figure.win .bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line-2);background:#fff}
+figure.win .bar i{width:9px;height:9px;border-radius:50%;background:#e2ded7;display:block}
+figure.win .bar .f{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-left:8px}
+figure .playwrap{position:relative;cursor:pointer;background:#f1efec}
+figure video{width:100%;height:auto;display:block}
+figure.phone{max-width:300px}
+figcaption{margin-top:11px;font-size:13.5px;color:var(--muted);line-height:1.5}
+.post .foot{margin-top:48px;padding-top:26px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13.5px}
+.post .foot a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+.rv{opacity:0;transform:translateY(15px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+<style id="v48-claude-integration">
+  .hero h1{max-width:24ch}
+  .hero p.intro{max-width:62ch}
+  .creds{align-items:center}
+  .demo .frame{min-height:560px;background:#fff}
+  .else-grid--three{grid-template-columns:1.05fr .95fr}
+  .else-video video{display:block;width:100%;height:auto;background:#111}
+  .playwrap video[controls] + .pb{display:none}
+  .about .ph img{object-position:center}
+  .toc .mid .ds{max-width:52ch}
+  @media(max-width:760px){.demo .frame{min-height:520px}.else-grid--three{grid-template-columns:1fr}}
+</style>
+
+
+<style id="v49-spacing-copy">
+  .toc .mid{
+    display:grid!important;
+    grid-template-columns:max-content minmax(0,1fr)!important;
+    align-items:baseline!important;
+    column-gap:22px!important;
+  }
+  .toc .mid .nm{
+    white-space:nowrap!important;
+  }
+  .toc .mid .ds{
+    margin-top:0!important;
+    padding-left:0!important;
+    max-width:56ch!important;
+  }
+  @media(max-width:700px){
+    .toc .mid{
+      grid-template-columns:1fr!important;
+      row-gap:6px!important;
+    }
+    .toc .mid .ds{
+      margin-top:0!important;
+    }
+  }
+</style>
+
+
+<style id="project555-embed-bigger">
+  #building .wide{
+    max-width:1180px!important;
+  }
+  #building .demo .frame{
+    aspect-ratio:16/11!important;
+    min-height:760px!important;
+  }
+  @media(max-width:760px){
+    #building .demo .frame{
+      min-height:620px!important;
+      aspect-ratio:9/12!important;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+</head><body><nav id="nav"><a class="nm" href="index.html"></a>
+<div class="lx"><a href="index.html#work">Work</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></div></nav>
+<header class="hero"><div class="col">
+<h1 class="rv">Hey, I'm Priyanka. I love to build <span class="title-switch" data-words="cool,useful,intentional,and yes AI">cool</span> products.</h1>  <p class="intro rv">I'm always cooking up something. Here are some things I've worked on.</p>
+  <div class="creds rv"><span><b>2×</b> Founder</span><span class="sep">/</span><span><b>2×</b> First sales hire</span><span class="sep">/</span><span><b>Top 500</b> world-ranked athlete</span></div>
+</div></header>
+
+<section class="sec" id="work"><div class="col">
+  <div class="label rv">The work</div>
+  <div class="toc rv">
+    <a href="project-555.html">
+      <span class="num">01</span>
+      <span class="mid"><span class="nm serif">Project 555</span><span class="ds">AI pre-review for bridge contract plans</span></span>
+      <span class="st">Read more ↗</span>
+    </a>
+    <a href="tapp.html">
+      <span class="num">02</span>
+      <span class="mid"><span class="nm serif">Tapp</span><span class="ds">Chatbot clone of a creator to drive subscription revenue</span></span>
+      <span class="st">Read more ↗</span>
+    </a>
+    <a href="4pm.html">
+      <span class="num">03</span>
+      <span class="mid"><span class="nm serif">4PM</span><span class="ds">CRM automation that gives sellers back an hour a day</span></span>
+      <span class="st">Read more ↗</span>
+    </a>
+    <a href="feedz.html">
+      <span class="num">04</span>
+      <span class="mid"><span class="nm serif">Feedz</span><span class="ds">Turning competitor data into hot leads</span></span>
+      <span class="st">Read more ↗</span>
+    </a>
+    <a href="find-your-match.html">
+      <span class="num">05</span>
+      <span class="mid"><span class="nm serif">Find Your Match</span><span class="ds">A curated speed dating event for singles</span></span>
+      <span class="st">Read more ↗</span>
+    </a>
+    <a href="wirlix.html">
+      <span class="num">06</span>
+      <span class="mid"><span class="nm serif">Wirlix</span><span class="ds">A social debate app with 1,000+ users and 450 debates</span></span>
+      <span class="st">Read more ↗</span>
+    </a>
+  </div>
+</div></section>
+
+<section class="sec build" id="building"><div class="wide">
+  <div class="head rv">
+    <h2 class="serif">Currently building: Project 555</h2>
+    <span class="live"><span class="d"></span>Live demo</span>
+  </div>
+  <p class="sub rv">A narrow AI workflow that reads a bridge contract plan set and shortlists likely Section 555 pay item errors, with evidence behind each flag. Try it below.</p>
+  <div class="demo rv">
+    <div class="bar"><i></i><i></i><i></i><span class="f">project-555 · demo</span></div>
+    <!-- Replace the iframe src with your Hugging Face Space embed URL, e.g. https://priyanka-project555.hf.space -->
+    <iframe class="frame" src="https://priyankasundhar-project555-v2-test.hf.space" title="Project 555 live demo" loading="lazy"></iframe>
+  </div>
+  <p class="demo-cap rv">Prefer full screen? <a href="https://huggingface.co/spaces/priyankasundhar/project555-v2-test" target="_blank" rel="noopener">Open the demo on Hugging Face &#8599;</a></p>
+</div></section>
+
+<section class="sec" id="elsewhere"><div class="wide">
+  <div class="label rv">Elsewhere</div>
+  <div class="else-grid else-grid--verified rv">
+    <div class="else-card else-card--media">
+      <div class="k">Product testimonial</div>
+      <h3>Ascend Customer Testimonial</h3>
+      <div class="else-video-inline">
+        <video class="js-start-six" src="4pm-testimonial.mp4#t=7" preload="metadata" playsinline controls></video>
+      </div>
+      <div class="go">Founded 4pm with two co-founders and a dream.</div>
+    </div>
+
+    <div class="else-links">
+      <a class="else-card else-card--with-thumb" href="https://www.youtube.com/watch?v=_0k-eGtNEuA" target="_blank" rel="noopener">
+        <div class="else-thumb"><img src="https://img.youtube.com/vi/_0k-eGtNEuA/hqdefault.jpg" alt="Podcast thumbnail"></div>
+        <div class="k">Podcast</div>
+        <h3>My Thoughts on AI and Productivity</h3>
+        <div class="go">Watch on YouTube ↗</div>
+      </a>
+      <a class="else-card else-card--with-thumb" href="https://finance.yahoo.com/markets/stocks/articles/securitize-begins-trading-nyse-tokenized-184350320.html" target="_blank" rel="noopener">
+        <div class="else-thumb"><img src="profile_photo.jpg" alt="Securitize IPO billboard"></div>
+        <div class="k">Press</div>
+        <h3>Securitize Begins Trading on NYSE</h3>
+        <div class="go">I was employee #7 at Securitize</div>
+      </a>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec about" id="about"><div class="col">
+  <div class="label rv">About</div>
+  <div class="grid rv">
+    <div class="ph"><img src="securitize_article_photo.png" alt="Portrait of Priyanka"></div>
+    <div class="bd">
+      <p class="lead">I dropped out of NYU after my first semester.</p>
+      <p>I believe humans learn by doing. There's something magical about launching something from an idea to reality. I never felt that spark in a classroom so building became and continues to be mine.</p>
+     
+    </div>
+  </div>
+</div></section>
+
+<section class="sec contact" id="contact"><div class="col">
+  <div class="label rv">Contact</div>
+  <a class="mail" href="https://www.linkedin.com/in/priyanka-sundhar/" target="_blank" rel="noopener">Work with me ↗</a>
+  <div class="sub">LinkedIn · <a href="https://www.linkedin.com/in/priyanka-sundhar/" target="_blank" rel="noopener">priyanka-sundhar</a></div>
+</div></section>
+<footer><div class="col"><span>Updated Jul 2026</span>
+<a href="mailto:priyanka@feedz.co">Email</a></div></footer><script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>26),{passive:true});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -5% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+function playV(w){const v=w.querySelector('video');if(v.paused){v.play();v.setAttribute('controls','');w.classList.add('playing')}}
+</script>
+<style id="v50-refinements">
+  .title-switch{
+    font-family:'Newsreader',Georgia,serif;
+    color:#7d756d;
+    font-style:italic;
+    white-space:nowrap;
+    transition:opacity .24s ease;
+  }
+  .title-switch.is-changing{opacity:.25}
+  .else-grid--balanced{
+    grid-template-columns:1fr 1fr;
+    align-items:stretch;
+  }
+  .else-card--media{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .else-card--media h3{
+    margin-bottom:0;
+  }
+  .else-video-inline{
+    margin:2px 0 2px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:#111;
+  }
+  .else-video-inline video{
+    display:block;
+    width:100%;
+    height:auto;
+    background:#111;
+  }
+  .else-card .go{
+    line-height:1.55;
+  }
+  .about .bd p.lead{
+    font-family:'Newsreader',Georgia,serif;
+    font-size:23px;
+    line-height:1.3;
+    color:var(--ink);
+  }
+  @media(max-width:640px){
+    .else-grid--balanced{grid-template-columns:1fr}
+  }
+</style>
+<script id="v50-title-switch">
+(function(){
+  var el = document.querySelector('.title-switch');
+  if(!el) return;
+
+  var words = (el.getAttribute('data-words') || 'cool,useful,intentional,and yes AI')
+    .split(',')
+    .map(function(w){ return w.trim(); })
+    .filter(Boolean);
+
+  var i = 0;
+  el.textContent = words[0];
+
+  setInterval(function(){
+    i = (i + 1) % words.length;
+    el.classList.add('is-changing');
+
+    setTimeout(function(){
+      el.textContent = words[i];
+      el.classList.remove('is-changing');
+    }, 220);
+  }, 1900);
+})();
+</script>
+<style id="v52-click-and-elsewhere">
+  .toc a{
+    position:relative;
+  }
+  .toc a .st{
+    color:var(--ink-2)!important;
+    border:1px solid var(--line-2);
+    border-radius:999px;
+    padding:7px 10px;
+    line-height:1;
+    background:#fff;
+    transition:background .2s,color .2s,border-color .2s,transform .2s;
+  }
+  .toc a:hover .st{
+    color:var(--ink)!important;
+    border-color:var(--ink);
+    background:#f7f5f1;
+    transform:translateX(2px);
+  }
+  .toc a:hover .mid .nm{
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    text-underline-offset:5px;
+  }
+  .toc a::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+  }
+
+  .else-grid--visual{
+    align-items:stretch;
+  }
+  .else-card--media,
+  .else-card--with-thumb{
+    overflow:hidden;
+  }
+  .else-video-inline{
+    margin-top:12px;
+  }
+  .else-video-inline video{
+    display:block;
+    width:100%;
+    background:#111;
+  }
+  .else-thumb{
+    width:100%;
+    aspect-ratio:16/9;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:18px;
+    background:#f4f2ef;
+  }
+  .else-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:saturate(.86) contrast(.96);
+  }
+  .else-thumb--press{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:18px;
+    color:var(--ink);
+  }
+  .else-thumb--press span{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .else-thumb--press strong{
+    font-family:'Newsreader',Georgia,serif;
+    font-size:42px;
+    line-height:1;
+    font-weight:400;
+    letter-spacing:-.035em;
+  }
+  @media(max-width:560px){
+    .toc a .st{
+      display:inline-flex!important;
+      grid-column:2;
+      width:max-content;
+      margin-top:10px;
+    }
+  }
+</style>
+
+
+
+<style id="v53-elsewhere-card-fix">
+  #elsewhere .else-grid,
+  #elsewhere .else-grid--balanced,
+  #elsewhere .else-grid--visual{
+    align-items:start!important;
+  }
+
+  #elsewhere .else-card{
+    min-height:0!important;
+    height:auto!important;
+  }
+
+  #elsewhere .else-card--media{
+    padding:30px!important;
+    gap:18px!important;
+  }
+
+  #elsewhere .else-card--media h3{
+    margin:0 0 8px!important;
+  }
+
+  #elsewhere .else-video-inline{
+    margin:8px 0 8px!important;
+    border-radius:10px!important;
+  }
+
+  #elsewhere .else-video-inline video{
+    aspect-ratio:16/9!important;
+    object-fit:cover!important;
+    width:100%!important;
+    height:auto!important;
+    max-height:360px!important;
+  }
+
+  #elsewhere .else-card--media .go{
+    margin-top:4px!important;
+    font-size:15px!important;
+    line-height:1.55!important;
+    max-width:52ch!important;
+  }
+
+  #elsewhere .else-links{
+    gap:20px!important;
+  }
+
+  #elsewhere .else-card--with-thumb{
+    padding:24px!important;
+  }
+
+  #elsewhere .else-thumb{
+    margin-bottom:16px!important;
+  }
+
+  @media(max-width:640px){
+    #elsewhere .else-card--media{padding:24px!important}
+  }
+</style>
+
+
+<style id="v56-verified-overrides">
+  #elsewhere .else-grid--verified{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:22px!important;
+    align-items:start!important;
+  }
+  #elsewhere .else-card{
+    min-height:0!important;
+    height:auto!important;
+  }
+  #elsewhere .else-card--media{
+    padding:30px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:16px!important;
+  }
+  #elsewhere .else-card--media h3{margin:0!important}
+  #elsewhere .else-video-inline{
+    margin:8px 0!important;
+    border:1px solid var(--line)!important;
+    border-radius:10px!important;
+    overflow:hidden!important;
+    background:#111!important;
+  }
+  #elsewhere .else-video-inline video{
+    display:block!important;
+    width:100%!important;
+    aspect-ratio:16/9!important;
+    object-fit:cover!important;
+    background:#111!important;
+  }
+  #elsewhere .else-card--with-thumb{padding:24px!important;overflow:hidden!important}
+  #elsewhere .else-thumb{
+    width:100%!important;
+    aspect-ratio:16/9!important;
+    border:1px solid var(--line)!important;
+    border-radius:10px!important;
+    overflow:hidden!important;
+    margin-bottom:18px!important;
+    background:#f4f2ef!important;
+  }
+  #elsewhere .else-thumb img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    display:block!important;
+  }
+  @media(max-width:640px){
+    #elsewhere .else-grid--verified{grid-template-columns:1fr!important}
+  }
+</style>
+
+
+
+<style id="v59-youtube-preview-fix">
+  #elsewhere a[href*="youtube.com"] .else-thumb img{
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+</style>
+
+<script id="v62-4pm-testimonial-start">
+(function(){
+  var videos = document.querySelectorAll('.js-start-six');
+  videos.forEach(function(video){
+    function forceStart(){
+      try {
+        if (video.currentTime < 6) video.currentTime = 6;
+      } catch(e) {}
+    }
+    video.addEventListener('loadedmetadata', forceStart, {once:true});
+    video.addEventListener('canplay', forceStart, {once:true});
+    video.addEventListener('play', forceStart);
+  });
+})();
+</script>
+</body></html>
