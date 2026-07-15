@@ -638,4 +638,128 @@ function playV(w){const v=w.querySelector('video');if(v.paused){v.play();v.setAt
   });
 })();
 </script>
+
+<style id="v63-hero-elsewhere-responsive">
+  body{overflow-x:hidden}
+
+  .hero{
+    min-height:clamp(680px,88svh,920px);
+    display:flex;
+    align-items:center;
+    padding:clamp(112px,14vh,172px) 0 clamp(104px,13vh,154px);
+  }
+  .hero .col{width:100%;max-width:780px}
+  .hero h1{
+    max-width:20ch;
+    margin-bottom:30px;
+    font-size:clamp(38px,5vw,56px);
+    line-height:1.08;
+    letter-spacing:-.025em;
+  }
+  .hero p.intro{
+    max-width:54ch;
+    margin-bottom:40px;
+    font-size:18px;
+    line-height:1.65;
+  }
+  .hero .creds{gap:10px 22px;padding-top:26px;font-size:14.5px}
+
+  #elsewhere{padding:108px 0 126px}
+  #elsewhere .wide{max-width:980px}
+  #elsewhere > .wide > .label{margin-bottom:42px}
+  #elsewhere .else-grid--verified{
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)!important;
+    gap:28px!important;
+  }
+  #elsewhere .else-card{width:100%}
+  #elsewhere .else-card--media{padding:32px!important}
+  #elsewhere .else-links{gap:22px!important}
+  #elsewhere .else-card--with-thumb{padding:26px!important}
+  #elsewhere .else-card h3{font-size:20px}
+  #elsewhere .else-card .go{font-size:13.5px}
+
+  .toc .mid,
+  .toc .mid .ds,
+  .build .head,
+  .demo,
+  .demo .frame,
+  .about .bd{min-width:0}
+  .demo .bar .f{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+  @media(max-width:760px){
+    .col,.wide{padding-left:22px;padding-right:22px}
+    .hero{min-height:92svh;padding:94px 0 82px}
+    .hero .col{max-width:640px}
+    .hero h1{
+      max-width:18ch;
+      margin-bottom:26px;
+      font-size:clamp(38px,10vw,50px);
+      line-height:1.08;
+    }
+    .hero p.intro{margin-bottom:32px;font-size:17px;line-height:1.6}
+    .hero .creds{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:9px;
+      padding-top:22px;
+    }
+    .hero .creds .sep{display:none}
+
+    #elsewhere{padding:78px 0 92px}
+    #elsewhere > .wide > .label{margin-bottom:30px}
+    #elsewhere .else-grid--verified{grid-template-columns:1fr!important;gap:20px!important}
+    #elsewhere .else-card--media,
+    #elsewhere .else-card--with-thumb{padding:22px!important;border-radius:11px}
+    #elsewhere .else-links{gap:18px!important}
+    #elsewhere .else-thumb{margin-bottom:15px!important}
+
+    .sec{padding:76px 0}
+    .sec > .col > .label,.sec > .wide > .label{margin-bottom:28px}
+    .build .head{align-items:flex-start;flex-direction:column;gap:12px}
+    #building .wide{padding-left:14px!important;padding-right:14px!important}
+    #building .head,#building .sub,#building .demo-cap{margin-left:8px;margin-right:8px}
+    #building .demo .frame{
+      width:100%!important;
+      height:74svh!important;
+      min-height:560px!important;
+      max-height:760px!important;
+      aspect-ratio:auto!important;
+    }
+  }
+
+  @media(max-width:560px){
+    .col,.wide{padding-left:20px;padding-right:20px}
+    .hero{min-height:94svh;align-items:center;padding:84px 0 70px}
+    .hero h1{max-width:16ch;font-size:clamp(37px,11.5vw,47px)}
+    .hero p.intro{max-width:31ch}
+
+    #elsewhere{padding:70px 0 84px}
+    #elsewhere .else-card--media,
+    #elsewhere .else-card--with-thumb{padding:20px!important}
+    #elsewhere .else-card h3{font-size:19px}
+
+    .toc a{
+      grid-template-columns:28px minmax(0,1fr)!important;
+      gap:12px!important;
+      padding:21px 0!important;
+    }
+    .toc a:hover{padding-left:0!important}
+    .toc .mid{min-width:0}
+    .toc .mid .nm{white-space:normal!important}
+    .toc .mid .ds{font-size:14px;line-height:1.55}
+    .toc a .st{grid-column:2;margin-top:10px}
+
+    .about .grid{grid-template-columns:1fr}
+    .about .ph{width:150px;max-width:44vw}
+    footer{padding-bottom:max(44px,env(safe-area-inset-bottom))}
+  }
+
+  @media(max-width:380px){
+    .hero h1{font-size:36px}
+    .hero .col,.col,.wide{padding-left:17px;padding-right:17px}
+    #elsewhere .else-card--media,
+    #elsewhere .else-card--with-thumb{padding:17px!important}
+  }
+</style>
+
 </body></html>
