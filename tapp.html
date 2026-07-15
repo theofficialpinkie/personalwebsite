@@ -1,118 +1,603 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Turning a creator’s judgment into a subscription product. · Priyanka Sundhar</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Manrope:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><style>
-:root{--bg:#ffffff;--ink:#141210;--ink-2:#575049;--muted:#948d84;--line:#e9e6e1;--line-2:#dcd7cf;--panel:#f4f2ef;--maxw:720px;--wide:900px}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:16.5px;line-height:1.72;-webkit-font-smoothing:antialiased}
-.serif{font-family:'Newsreader',Georgia,serif}.mono{font-family:'Space Mono',monospace}a{color:inherit}
-.col{max-width:var(--maxw);margin:0 auto;padding:0 28px}.wide{max-width:var(--wide);margin:0 auto;padding:0 28px}
-#nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:20px 28px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.92);backdrop-filter:blur(9px)}
-#nav .nm{font-family:'Newsreader',serif;font-size:16px;font-weight:500;text-decoration:none}#nav .lx{display:flex;gap:22px}#nav .lx a{font-size:13px;color:var(--ink-2);text-decoration:none}
-.label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
-.post{padding:150px 0 40px}.post .back{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.04em;display:inline-block;margin-bottom:34px}.post .back:hover{color:var(--ink)}
-.post .pmeta{margin-bottom:18px}.post h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-.015em;margin-bottom:22px;max-width:22ch}.post .dek{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:56ch;margin-bottom:8px}
-.post .body{padding-top:20px}.post .body p{margin-bottom:22px;color:var(--ink);font-size:17px;line-height:1.75}.post .body p.q{color:var(--ink-2)}.post .body h2{font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:40px 0 14px;line-height:1.2}
-figure{margin:36px 0}figure.wide{max-width:var(--wide);margin-left:auto;margin-right:auto}figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}figure.win{border:1px solid var(--line-2);border-radius:12px;overflow:hidden}figure.win img{border:0;border-radius:0}figure.win .bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line-2);background:#fff}figure.win .bar i{width:9px;height:9px;border-radius:50%;background:#e2ded7;display:block}figure.win .bar .f{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-left:8px}
-figure video{width:100%;height:auto;display:block;background:#111;border:1px solid var(--line);border-radius:8px}figure.phone{max-width:330px;margin-left:auto;margin-right:auto}figcaption{margin-top:11px;font-size:13.5px;color:var(--muted);line-height:1.5}
-.post .foot{margin-top:48px;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13.5px}.post .foot a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-@media(max-width:560px){#nav .lx{display:none}#nav{padding:16px 20px}}
-</style><style id="v49-blog-polish">.post h1{max-width:24ch}.post .dek{max-width:60ch}</style>
-<style id="v56-phone-frame">
-figure.phone{max-width:330px;margin-left:auto;margin-right:auto}
-.phone-frame{position:relative;border:1px solid #d8d3cc;border-radius:34px;padding:12px;background:#111;box-shadow:0 18px 40px rgba(0,0,0,.08)}
-.phone-frame::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:34%;height:22px;background:#111;border-radius:0 0 14px 14px;z-index:2}
-.phone-frame video{border:0!important;border-radius:24px!important;width:100%;display:block;background:#000;aspect-ratio:9/19.5;object-fit:cover}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Turning a creator’s judgment into a subscription product. · Priyanka Sundhar</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Manrope:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
 
-
-
-<style id="tapp-final-layout">
-  .tapp-layout{
-    max-width:var(--wide);
-    margin:34px auto 0;
-    padding:0 28px;
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 286px;
-    gap:76px;
-    align-items:start;
-  }
-  .tapp-layout .body{
-    padding-top:0;
-    max-width:620px;
-  }
-  .tapp-layout .body p{
-    margin-bottom:26px;
-  }
-  .tapp-layout figure.phone{
-    max-width:286px;
-    margin:4px 0 0;
-    position:sticky;
-    top:96px;
-  }
-  .launch-section{
-    max-width:var(--wide);
-    margin:76px auto 0;
-    padding:0 28px;
-  }
-  .launch-section h2{
-    font-family:'Newsreader',Georgia,serif;
-    font-weight:500;
-    font-size:26px;
-    margin:0 0 14px;
-    line-height:1.2;
-  }
-  .launch-section p{
-    max-width:64ch;
-    color:var(--ink-2);
-    font-size:16.5px;
-    line-height:1.7;
-    margin-bottom:30px;
-  }
-  .launch-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-    align-items:start;
-  }
-  .launch-embed{
-    border:1px solid var(--line);
-    border-radius:14px;
-    overflow:hidden;
-    background:#fff;
-  }
-  .launch-embed iframe{
-    width:100%;
-    min-height:640px;
-    border:0;
-    display:block;
-    background:#fff;
-  }
-  .launch-open{
-    display:block;
-    padding:13px 15px;
-    border-top:1px solid var(--line);
-    font-size:13px;
-    color:var(--ink-2);
-    text-decoration:none;
-  }
-  .launch-open:hover{color:var(--ink)}
-  @media(max-width:860px){
-    .tapp-layout{
-      grid-template-columns:1fr;
-      gap:42px;
-      margin-top:28px;
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#141210;
+      --ink-2:#575049;
+      --muted:#948d84;
+      --line:#e9e6e1;
+      --line-2:#dcd7cf;
+      --panel:#f4f2ef;
+      --maxw:720px;
+      --wide:900px;
     }
-    .tapp-layout figure.phone{
-      position:relative;
-      top:auto;
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+      -webkit-text-size-adjust:100%;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:'Manrope',system-ui,sans-serif;
+      font-size:16.5px;
+      line-height:1.72;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .serif{
+      font-family:'Newsreader',Georgia,serif;
+    }
+
+    .mono{
+      font-family:'Space Mono',monospace;
+    }
+
+    a{
+      color:inherit;
+    }
+
+    .col{
+      max-width:var(--maxw);
       margin:0 auto;
+      padding:0 28px;
     }
-    .launch-section{margin-top:62px}
-    .launch-grid{grid-template-columns:1fr;gap:26px}
-    .launch-embed iframe{min-height:590px}
-  }
-</style>
 
+    .wide{
+      max-width:var(--wide);
+      margin:0 auto;
+      padding:0 28px;
+    }
 
-</head><body><nav id="nav"><a class="nm" href="index.html">Priyanka Sundhar</a><div class="lx"><a href="index.html#work">Work</a><a href="index.html#elsewhere">Elsewhere</a><a href="index.html#about">About</a></div></nav><main class="post"><div class="col"><a class="back" href="index.html">← Back to work</a><div class="label pmeta">Tapp · Creator AI</div><h1>Cloning a creator into a chatbot.</h1><p class="dek">Erika Owls is a celebrity tarot reader and we worked together to use AI to create on demand readings for her clients.</p></div><div class="tapp-layout"><div class="body"><p>I met Erika in Bali at the gym. She had a real tarot reading business, loyal clients including celebrities, and a service people paid hundreds of dollars an hour for. The business worked, but the operating model capped her time.</p><p>Tapp was a chatbot that cloned her voice, tone, and expertise in tarot so outside of hourly readings, clients could still talk to Erika.</p><p>The product could not just be tarot plus AI. The value was in her interpretation, philosophy, and voice. I built prompts around all 78 cards, encoding her meanings, philosophy, and voice from her own documents and call recordings, so the product reasoned like her rather than like a generic AI reading.</p><p>The product became a way to test how creator expertise can be packaged into a live subscription experience.</p></div><figure class="phone"><div class="phone-frame"><video src="tapp_interface_start_041.mp4" autoplay muted loop playsinline controls></video></div></figure></div><section class="launch-section"><h2>Launch</h2><p>We were able to get 8 paying subscribers in the first week, and the feedback was really great with many more users trying the app and logging in daily for a reading.</p><div class="launch-grid"><div class="launch-embed"><iframe src="https://www.instagram.com/reel/DNIhOq-TxQ1/embed/captioned/" title="Tapp launch party reel by Erika Owls" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe><a class="launch-open" href="https://www.instagram.com/reel/DNIhOq-TxQ1/" target="_blank" rel="noopener">Open launch party reel ↗</a></div><div class="launch-embed"><iframe src="https://www.instagram.com/reel/DNL1sQBTm-M/embed/captioned/" title="Tapp event reel by Erika Owls" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe><a class="launch-open" href="https://www.instagram.com/reel/DNL1sQBTm-M/" target="_blank" rel="noopener">Open event reel ↗</a></div></div></section><div class="col body"><div class="foot"><a href="index.html">Home</a><a href="4pm.html">Next piece →</a></div></div></main>
-</body></html>
+    #nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:40;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 28px;
+      border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(9px);
+    }
+
+    #nav .nm{
+      font-family:'Newsreader',serif;
+      font-size:16px;
+      font-weight:500;
+      text-decoration:none;
+    }
+
+    #nav .lx{
+      display:flex;
+      gap:22px;
+    }
+
+    #nav .lx a{
+      font-size:13px;
+      color:var(--ink-2);
+      text-decoration:none;
+    }
+
+    .label{
+      font-family:'Space Mono',monospace;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .post{
+      padding:150px 0 40px;
+    }
+
+    .post .back{
+      display:inline-block;
+      margin-bottom:34px;
+      font-family:'Space Mono',monospace;
+      font-size:12px;
+      color:var(--muted);
+      text-decoration:none;
+      letter-spacing:.04em;
+    }
+
+    .post .back:hover{
+      color:var(--ink);
+    }
+
+    .post .pmeta{
+      margin-bottom:18px;
+    }
+
+    .post h1{
+      max-width:24ch;
+      margin-bottom:22px;
+      font-family:'Newsreader',serif;
+      font-weight:400;
+      font-size:clamp(30px,4.4vw,46px);
+      line-height:1.08;
+      letter-spacing:-.015em;
+    }
+
+    .post .dek{
+      max-width:60ch;
+      margin-bottom:8px;
+      font-size:19px;
+      line-height:1.55;
+      color:var(--ink-2);
+    }
+
+    .post .body{
+      padding-top:20px;
+    }
+
+    .post .body p{
+      margin-bottom:22px;
+      color:var(--ink);
+      font-size:17px;
+      line-height:1.75;
+    }
+
+    .post .body p.q{
+      color:var(--ink-2);
+    }
+
+    .post .body h2{
+      margin:40px 0 14px;
+      font-family:'Newsreader',serif;
+      font-weight:500;
+      font-size:24px;
+      line-height:1.2;
+    }
+
+    figure{
+      margin:36px 0;
+    }
+
+    figure.wide{
+      max-width:var(--wide);
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    figure img{
+      display:block;
+      width:100%;
+      height:auto;
+      border:1px solid var(--line);
+      border-radius:8px;
+    }
+
+    figure.win{
+      overflow:hidden;
+      border:1px solid var(--line-2);
+      border-radius:12px;
+    }
+
+    figure.win img{
+      border:0;
+      border-radius:0;
+    }
+
+    figure.win .bar{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 16px;
+      border-bottom:1px solid var(--line-2);
+      background:#fff;
+    }
+
+    figure.win .bar i{
+      display:block;
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:#e2ded7;
+    }
+
+    figure.win .bar .f{
+      margin-left:8px;
+      font-family:'Space Mono',monospace;
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    figure video{
+      display:block;
+      width:100%;
+      height:auto;
+      background:#111;
+      border:1px solid var(--line);
+      border-radius:8px;
+    }
+
+    figure.phone{
+      max-width:286px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    figcaption{
+      margin-top:11px;
+      font-size:13.5px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .post .foot{
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:48px;
+      padding-top:26px;
+      border-top:1px solid var(--line);
+      font-size:13.5px;
+    }
+
+    .post .foot a{
+      color:var(--ink);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    .phone-frame{
+      position:relative;
+      padding:12px;
+      background:#111;
+      border:1px solid #d8d3cc;
+      border-radius:34px;
+      box-shadow:0 18px 40px rgba(0,0,0,.08);
+    }
+
+    .phone-frame::before{
+      content:"";
+      position:absolute;
+      top:8px;
+      left:50%;
+      z-index:2;
+      width:34%;
+      height:22px;
+      transform:translateX(-50%);
+      background:#111;
+      border-radius:0 0 14px 14px;
+    }
+
+    .phone-frame video{
+      display:block;
+      width:100%;
+      aspect-ratio:9 / 19.5;
+      object-fit:cover;
+      background:#000;
+      border:0 !important;
+      border-radius:24px !important;
+    }
+
+    .tapp-layout{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 286px;
+      align-items:start;
+      gap:76px;
+      max-width:var(--wide);
+      margin:34px auto 0;
+      padding:0 28px;
+    }
+
+    .tapp-layout .body{
+      max-width:620px;
+      padding-top:0;
+    }
+
+    .tapp-layout .body p{
+      margin-bottom:26px;
+    }
+
+    .tapp-layout figure.phone{
+      position:sticky;
+      top:96px;
+      max-width:286px;
+      margin:4px 0 0;
+    }
+
+    .launch-section{
+      max-width:var(--wide);
+      margin:72px auto 0;
+      padding:0 28px;
+    }
+
+    .launch-section h2{
+      margin:0 0 12px;
+      font-family:'Newsreader',Georgia,serif;
+      font-weight:500;
+      font-size:26px;
+      line-height:1.2;
+    }
+
+    .launch-section > p{
+      max-width:60ch;
+      margin-bottom:32px;
+      color:var(--ink-2);
+      font-size:16.5px;
+      line-height:1.7;
+    }
+
+    .launch-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,310px));
+      justify-content:center;
+      align-items:start;
+      gap:24px;
+    }
+
+    .launch-embed{
+      overflow:hidden;
+      width:100%;
+      max-width:310px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      box-shadow:0 10px 28px rgba(20,18,16,.045);
+    }
+
+    .launch-embed iframe{
+      display:block;
+      width:100%;
+      height:550px;
+      min-height:0;
+      background:#fff;
+      border:0;
+    }
+
+    .launch-open{
+      display:block;
+      padding:11px 13px;
+      border-top:1px solid var(--line);
+      font-family:'Space Mono',monospace;
+      font-size:10.5px;
+      letter-spacing:.03em;
+      color:var(--muted);
+      text-decoration:none;
+    }
+
+    .launch-open:hover{
+      color:var(--ink);
+      background:var(--panel);
+    }
+
+    @media(max-width:860px){
+      .tapp-layout{
+        grid-template-columns:1fr;
+        gap:42px;
+        margin-top:28px;
+      }
+
+      .tapp-layout figure.phone{
+        position:relative;
+        top:auto;
+        margin:0 auto;
+      }
+
+      .launch-section{
+        margin-top:60px;
+      }
+
+      .launch-grid{
+        grid-template-columns:repeat(2,minmax(0,280px));
+        gap:18px;
+      }
+
+      .launch-embed{
+        max-width:280px;
+      }
+
+      .launch-embed iframe{
+        height:510px;
+      }
+    }
+
+    @media(max-width:640px){
+      .launch-section{
+        padding:0 20px;
+      }
+
+      .launch-grid{
+        grid-template-columns:1fr;
+        justify-items:center;
+        gap:28px;
+      }
+
+      .launch-embed{
+        width:100%;
+        max-width:310px;
+      }
+
+      .launch-embed iframe{
+        height:550px;
+      }
+    }
+
+    @media(max-width:560px){
+      #nav{
+        padding:16px 20px;
+      }
+
+      #nav .lx{
+        display:none;
+      }
+
+      .col,
+      .tapp-layout{
+        padding-left:20px;
+        padding-right:20px;
+      }
+
+      .post{
+        padding-top:118px;
+      }
+
+      .post h1{
+        font-size:clamp(34px,10vw,42px);
+      }
+
+      .post .dek{
+        font-size:17px;
+      }
+
+      .tapp-layout{
+        gap:36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="nav">
+    <a class="nm" href="index.html">Priyanka Sundhar</a>
+
+    <div class="lx">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#elsewhere">Elsewhere</a>
+      <a href="index.html#about">About</a>
+    </div>
+  </nav>
+
+  <main class="post">
+    <div class="col">
+      <a class="back" href="index.html">← Back to work</a>
+
+      <div class="label pmeta">Tapp · Creator AI</div>
+
+      <h1>Cloning a creator into a chatbot.</h1>
+
+      <p class="dek">
+        Erika Owls is a celebrity tarot reader and we worked together to use AI
+        to create on-demand readings for her clients.
+      </p>
+    </div>
+
+    <div class="tapp-layout">
+      <div class="body">
+        <p>
+          I met Erika in Bali at the gym. She had a real tarot reading business,
+          loyal clients including celebrities, and a service people paid
+          hundreds of dollars an hour for. The business worked, but the operating
+          model capped her time.
+        </p>
+
+        <p>
+          Tapp was a chatbot that cloned her voice, tone, and expertise in tarot
+          so outside of hourly readings, clients could still talk to Erika.
+        </p>
+
+        <p>
+          The product could not just be tarot plus AI. The value was in her
+          interpretation, philosophy, and voice. I built prompts around all 78
+          cards, encoding her meanings, philosophy, and voice from her own
+          documents and call recordings, so the product reasoned like her rather
+          than like a generic AI reading.
+        </p>
+
+        <p>
+          The product became a way to test how creator expertise can be packaged
+          into a live subscription experience.
+        </p>
+      </div>
+
+      <figure class="phone">
+        <div class="phone-frame">
+          <video
+            src="tapp_interface_start_041.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            controls
+          ></video>
+        </div>
+      </figure>
+    </div>
+
+    <section class="launch-section">
+      <h2>Launch night</h2>
+
+      <p>
+        Tapp gained eight paying subscribers in its first week, with more people
+        returning to the product for daily readings.
+      </p>
+
+      <div class="launch-grid">
+        <div class="launch-embed">
+          <iframe
+            src="https://www.instagram.com/reel/DNIhOq-TxQ1/embed/"
+            title="Tapp launch party reel by Erika Owls"
+            loading="lazy"
+            allowtransparency="true"
+            allowfullscreen="true"
+          ></iframe>
+
+          <a
+            class="launch-open"
+            href="https://www.instagram.com/reel/DNIhOq-TxQ1/"
+            target="_blank"
+            rel="noopener"
+          >
+            View launch reel ↗
+          </a>
+        </div>
+
+        <div class="launch-embed">
+          <iframe
+            src="https://www.instagram.com/reel/DNL1sQBTm-M/embed/"
+            title="Tapp event reel by Erika Owls"
+            loading="lazy"
+            allowtransparency="true"
+            allowfullscreen="true"
+          ></iframe>
+
+          <a
+            class="launch-open"
+            href="https://www.instagram.com/reel/DNL1sQBTm-M/"
+            target="_blank"
+            rel="noopener"
+          >
+            View behind the scenes ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="col body">
+      <div class="foot">
+        <a href="index.html">Home</a>
+        <a href="4pm.html">Next piece →</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
