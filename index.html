@@ -640,125 +640,299 @@ function playV(w){const v=w.querySelector('video');if(v.paused){v.play();v.setAt
 </script>
 
 <style id="v63-hero-elsewhere-responsive">
-  body{overflow-x:hidden}
+  /*
+    Header treatment adapted from the earlier version:
+    generous top spacing, a smaller editorial headline, and no forced
+    full-screen height. Elsewhere remains directly beneath the header.
+  */
+  body{
+    overflow-x:hidden;
+  }
 
   .hero{
-    min-height:clamp(680px,88svh,920px);
-    display:flex;
-    align-items:center;
-    padding:clamp(112px,14vh,172px) 0 clamp(104px,13vh,154px);
+    min-height:0;
+    display:block;
+    padding:clamp(132px,15vh,172px) 0 86px;
   }
-  .hero .col{width:100%;max-width:780px}
+
+  .hero .col{
+    width:100%;
+    max-width:720px;
+  }
+
   .hero h1{
-    max-width:20ch;
-    margin-bottom:30px;
-    font-size:clamp(38px,5vw,56px);
-    line-height:1.08;
-    letter-spacing:-.025em;
+    max-width:24ch;
+    margin-bottom:26px;
+    font-size:clamp(30px,3.8vw,40px);
+    line-height:1.24;
+    letter-spacing:-.012em;
   }
+
   .hero p.intro{
-    max-width:54ch;
-    margin-bottom:40px;
-    font-size:18px;
+    max-width:58ch;
+    margin-bottom:32px;
+    font-size:17px;
     line-height:1.65;
   }
-  .hero .creds{gap:10px 22px;padding-top:26px;font-size:14.5px}
 
-  #elsewhere{padding:108px 0 126px}
-  #elsewhere .wide{max-width:980px}
-  #elsewhere > .wide > .label{margin-bottom:42px}
-  #elsewhere .else-grid--verified{
-    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)!important;
-    gap:28px!important;
+  .hero .creds{
+    gap:8px 20px;
+    padding-top:22px;
+    font-size:14px;
   }
-  #elsewhere .else-card{width:100%}
-  #elsewhere .else-card--media{padding:32px!important}
-  #elsewhere .else-links{gap:22px!important}
-  #elsewhere .else-card--with-thumb{padding:26px!important}
-  #elsewhere .else-card h3{font-size:20px}
-  #elsewhere .else-card .go{font-size:13.5px}
+
+  /* Elsewhere stays immediately below the hero, with clear separation. */
+  #elsewhere{
+    padding:82px 0 96px;
+  }
+
+  #elsewhere .wide{
+    max-width:960px;
+  }
+
+  #elsewhere > .wide > .label{
+    margin-bottom:36px;
+  }
+
+  #elsewhere .else-grid--verified{
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)!important;
+    gap:24px!important;
+    align-items:start!important;
+  }
+
+  #elsewhere .else-card{
+    width:100%;
+  }
+
+  #elsewhere .else-card--media{
+    padding:30px!important;
+  }
+
+  #elsewhere .else-links{
+    gap:20px!important;
+  }
+
+  #elsewhere .else-card--with-thumb{
+    padding:24px!important;
+  }
 
   .toc .mid,
   .toc .mid .ds,
   .build .head,
   .demo,
   .demo .frame,
-  .about .bd{min-width:0}
-  .demo .bar .f{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .about .bd{
+    min-width:0;
+  }
+
+  .demo .bar .f{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
 
   @media(max-width:760px){
-    .col,.wide{padding-left:22px;padding-right:22px}
-    .hero{min-height:92svh;padding:94px 0 82px}
-    .hero .col{max-width:640px}
+    .col,
+    .wide{
+      padding-left:22px;
+      padding-right:22px;
+    }
+
+    .hero{
+      padding:112px 0 70px;
+    }
+
+    .hero .col{
+      max-width:640px;
+    }
+
     .hero h1{
-      max-width:18ch;
-      margin-bottom:26px;
-      font-size:clamp(38px,10vw,50px);
-      line-height:1.08;
+      max-width:20ch;
+      margin-bottom:24px;
+      font-size:clamp(32px,7.5vw,40px);
+      line-height:1.2;
     }
-    .hero p.intro{margin-bottom:32px;font-size:17px;line-height:1.6}
+
+    .hero p.intro{
+      max-width:48ch;
+      margin-bottom:30px;
+      font-size:16.5px;
+      line-height:1.62;
+    }
+
     .hero .creds{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:9px;
-      padding-top:22px;
+      gap:8px 16px;
+      padding-top:20px;
+      font-size:13.5px;
     }
-    .hero .creds .sep{display:none}
 
-    #elsewhere{padding:78px 0 92px}
-    #elsewhere > .wide > .label{margin-bottom:30px}
-    #elsewhere .else-grid--verified{grid-template-columns:1fr!important;gap:20px!important}
+    #elsewhere{
+      padding:70px 0 82px;
+    }
+
+    #elsewhere > .wide > .label{
+      margin-bottom:30px;
+    }
+
+    #elsewhere .else-grid--verified{
+      grid-template-columns:1fr!important;
+      gap:20px!important;
+    }
+
     #elsewhere .else-card--media,
-    #elsewhere .else-card--with-thumb{padding:22px!important;border-radius:11px}
-    #elsewhere .else-links{gap:18px!important}
-    #elsewhere .else-thumb{margin-bottom:15px!important}
+    #elsewhere .else-card--with-thumb{
+      padding:22px!important;
+      border-radius:11px;
+    }
 
-    .sec{padding:76px 0}
-    .sec > .col > .label,.sec > .wide > .label{margin-bottom:28px}
-    .build .head{align-items:flex-start;flex-direction:column;gap:12px}
-    #building .wide{padding-left:14px!important;padding-right:14px!important}
-    #building .head,#building .sub,#building .demo-cap{margin-left:8px;margin-right:8px}
+    #elsewhere .else-links{
+      gap:18px!important;
+    }
+
+    #elsewhere .else-thumb{
+      margin-bottom:15px!important;
+    }
+
+    .sec{
+      padding:72px 0;
+    }
+
+    .sec > .col > .label,
+    .sec > .wide > .label{
+      margin-bottom:28px;
+    }
+
+    .build .head{
+      align-items:flex-start;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    #building .wide{
+      padding-left:14px!important;
+      padding-right:14px!important;
+    }
+
+    #building .head,
+    #building .sub,
+    #building .demo-cap{
+      margin-left:8px;
+      margin-right:8px;
+    }
+
     #building .demo .frame{
       width:100%!important;
-      height:74svh!important;
-      min-height:560px!important;
-      max-height:760px!important;
+      height:72svh!important;
+      min-height:540px!important;
+      max-height:740px!important;
       aspect-ratio:auto!important;
     }
   }
 
   @media(max-width:560px){
-    .col,.wide{padding-left:20px;padding-right:20px}
-    .hero{min-height:94svh;align-items:center;padding:84px 0 70px}
-    .hero h1{max-width:16ch;font-size:clamp(37px,11.5vw,47px)}
-    .hero p.intro{max-width:31ch}
+    .col,
+    .wide{
+      padding-left:20px;
+      padding-right:20px;
+    }
 
-    #elsewhere{padding:70px 0 84px}
+    .hero{
+      padding:96px 0 60px;
+    }
+
+    .hero h1{
+      max-width:17ch;
+      font-size:clamp(31px,9.8vw,38px);
+      line-height:1.18;
+    }
+
+    .hero p.intro{
+      max-width:32ch;
+      margin-bottom:28px;
+      font-size:16px;
+    }
+
+    .hero .creds{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .hero .creds .sep{
+      display:none;
+    }
+
+    #elsewhere{
+      padding:62px 0 76px;
+    }
+
     #elsewhere .else-card--media,
-    #elsewhere .else-card--with-thumb{padding:20px!important}
-    #elsewhere .else-card h3{font-size:19px}
+    #elsewhere .else-card--with-thumb{
+      padding:20px!important;
+    }
 
     .toc a{
       grid-template-columns:28px minmax(0,1fr)!important;
       gap:12px!important;
       padding:21px 0!important;
     }
-    .toc a:hover{padding-left:0!important}
-    .toc .mid{min-width:0}
-    .toc .mid .nm{white-space:normal!important}
-    .toc .mid .ds{font-size:14px;line-height:1.55}
-    .toc a .st{grid-column:2;margin-top:10px}
 
-    .about .grid{grid-template-columns:1fr}
-    .about .ph{width:150px;max-width:44vw}
-    footer{padding-bottom:max(44px,env(safe-area-inset-bottom))}
+    .toc a:hover{
+      padding-left:0!important;
+    }
+
+    .toc .mid{
+      min-width:0;
+    }
+
+    .toc .mid .nm{
+      white-space:normal!important;
+    }
+
+    .toc .mid .ds{
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .toc a .st{
+      grid-column:2;
+      margin-top:10px;
+    }
+
+    .about .grid{
+      grid-template-columns:1fr;
+    }
+
+    .about .ph{
+      width:150px;
+      max-width:44vw;
+    }
+
+    footer{
+      padding-bottom:max(44px,env(safe-area-inset-bottom));
+    }
   }
 
   @media(max-width:380px){
-    .hero h1{font-size:36px}
-    .hero .col,.col,.wide{padding-left:17px;padding-right:17px}
+    .hero{
+      padding-top:86px;
+    }
+
+    .hero h1{
+      font-size:30px;
+    }
+
+    .hero .col,
+    .col,
+    .wide{
+      padding-left:17px;
+      padding-right:17px;
+    }
+
     #elsewhere .else-card--media,
-    #elsewhere .else-card--with-thumb{padding:17px!important}
+    #elsewhere .else-card--with-thumb{
+      padding:17px!important;
+    }
   }
 </style>
 
